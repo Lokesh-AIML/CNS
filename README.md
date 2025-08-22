@@ -29,6 +29,55 @@ becomes C. To change a message back, each letter is replaced by the one three be
 
 PROGRAM :-
 
+```
+Developed By : Lokeshwaran S
+Registration Number : 212224240080
 
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<ctype.h>
+void encrypt(char a[] , int key)
+{
+    for(int i = 0 ; a[i] != '\0' ; i++)
+    {
+        char ch = a[i];
+        if(isalpha(ch))
+        {
+            char base = isupper(ch) ? 'A' : 'a';
+            a[i] = (ch - base + key) % 26 + base;
+        }
+    }
+}
+void decrypt(char a[] , int key)
+{
+    for(int i = 0 ; a[i] != '\0' ; i++)
+    {
+        char ch = a[i];
+        if(isalpha(ch))
+        {
+            char base = isupper(ch) ? 'A' : 'a';
+            a[i] = (ch - base - key + 26) % 26 + base;
+        }
+    }
+}
+int main()
+{
+    char a[100];
+    int key,choice;
+    printf("Enter the text to encrypt or decrypt : ");
+    fgets(a,100,stdin);
+    printf("Enter the key : ");
+    scanf("%d",&key);
+    encrypt(a,key);
+    printf("Encrypted text : %s",a);
+    decrypt(a,key);
+    printf("Decrypted text : %s",a);
+}
+
+```
 
 OUTPUT :-
+
+<img width="634" height="317" alt="image" src="https://github.com/user-attachments/assets/f5084497-90ee-44fd-9010-4e51cf041bbb" />
+
